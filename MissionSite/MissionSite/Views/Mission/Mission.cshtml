@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Mission";
+}
+
+<!--Javascript file changes background flag image when hovering on dropdown link-->
+@section scripts{
+
+    @Scripts.Render("~/bundles/mission")
+
+}
+
+<!--Jumbotron with flag as background-->
+<div class="jumbotron missionJumbo" id="missionBackground">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <h1 id="selectMission" style="color: whitesmoke; font-family: 'Castellar'; margin:0"><span style="font-size: 70px">SELECT </span><span style="font-size: 70px">A</span></h1>
+                <h1 id="selectMission" style="color: whitesmoke; font-family: 'Castellar'; margin:0; font-size: 85px">MISSION</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <!--Dropdown menu centered in page-->
+                <div class="dropdown btn-group">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMission" data-toggle="dropdown">
+                        --SELECT MISSION--
+                        <span class="caret" style="border-top: 4px solid white"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li id="Adriatic">
+                            <a href=@Url.Action("MissionFAQ", "Mission", new { missionName = "Adriatic North" })>Adriatic North</a>
+                        </li>
+                        <li id="Japan">
+                            <a href=@Url.Action("MissionFAQ", "Mission", new { missionName = "Japan Sendai" })>Japan Sendai</a>
+                        </li>
+                        <li id="Mexico">
+                            <a href=@Url.Action("MissionFAQ", "Mission", new { missionName = "Mexico City West" })>Mexico City West</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

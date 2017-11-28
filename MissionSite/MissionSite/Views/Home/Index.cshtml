@@ -1,0 +1,109 @@
+﻿@{
+    ViewBag.Title = "Dunk 'Em";
+}
+
+<!--Video background jumbotron style-->
+<div id="splitDiv">
+    <div id="fullScreenDiv">
+        <div id="videos" style=" filter: grayscale(30%)">
+            <video id="video" autoplay="autoplay" controls muted loop="loop">
+                <source src="http://ldsudso-a.akamaihd.net/66852713001/66852713001_2165620956001_2013-02-2000-mormon-missionaries-8000k-eng.mp4?playerId=710849472001&lineupId=&affiliateId=&pubId=710874264001&videoId=2647608631001" type="video/mp4">
+            </video>
+        </div>
+        <div id="messageBox">
+            <div class="col-lg-1"></div>
+            <div class="row" id="myrow">
+                <div class="col-lg-8">
+                    <div id="msg" align="left">
+                        <br />
+                        <br />
+                        <h1 id="msg">Dunk 'Em</h1>
+                        <h1 id="msg2">Your Source of Missionary Knowledge</h1>
+                        <div class="col-lg-4">
+                            @Html.ActionLink("Find Out More!", "Mission", "Mission", null, new { @class = "gold-button" })
+                        </div>
+                        <br />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Mute/Unmute button-->
+<div class="row" id="buttonDiv">
+    <button onclick="myFunction()" type="button" class="btn btn-default"><span id="muteImg" class="glyphicon glyphicon-volume-off"></span></button>
+    <!--Javascript changes button from speaker to muted speaker image-->
+    <script>
+        function myFunction() {
+            if (document.getElementById("video").muted == false) {
+                document.getElementById("video").muted = true
+                document.getElementById("muteImg").className = "glyphicon glyphicon-volume-off";
+            }
+            else
+            {
+                document.getElementById("video").muted = false
+                document.getElementById("muteImg").className = "glyphicon glyphicon-volume-up";
+            }
+        }
+    </script>
+
+    <!--Information for various church resources-->
+    <div class="row">
+        <div class="col-md-6">
+            <br />
+            <img src="https://media.ldscdn.org/images/media-library/missionary/elders-at-missionary-training-center-708272-gallery.jpg" />
+        </div>
+        <br />
+        <div class="col-md-6">
+            <br />
+            <br />
+            <h3 style="text-align:center" class="luxury">Missionary Work Blesses The World</h3>
+            <a class="gold-button" style="width: 180px; float: none; margin: 0 auto; margin-top: 25px;" href="https://www.lds.org/topics/missionary-work?lang=eng" target="_blank">Learn More</a>
+        </div>
+    </div>
+
+    <div class="row spacer">
+        <div class="span4"></div>
+        <div class="span4"></div>
+        <hr style="border-top:1px solid" />
+        <div class="span4"></div>
+    </div>
+
+    <div class="row">
+        <br />
+        <div class="col-md-6">
+            <br />
+            <br />
+            <h3 style="text-align:center" class="luxury">Learn How You Can Be A Missionary</h3>
+            <a class="gold-button" style="width: 180px; float: none; margin: 0 auto; margin-top: 25px;" href="https://www.lds.org/youth/article/how-to-be-a-member-missionary?lang=eng" target="_blank">Learn More</a>
+        </div>
+        <br />
+        <div class="col-md-6">
+            <img align="right" src="https://media.ldscdn.org/images/media-library/by-speaker/president-thomas-s-monson/quote-monson-1173264-gallery.jpg" />
+        </div>
+    </div>
+
+    <div class="row spacer">
+        <div class="span4"></div>
+        <div class="span4"></div>
+        <hr style="border-top:1px solid" />
+        <div class="span4"></div>
+    </div>
+
+    <div class="row">
+        <br />
+        <div class="col-md-6">
+            <img src="http://en.elds.org/jesus-christ-org/files/2009/01/mormon-missionaries-teaching-a-family.jpg" />
+            <br />
+            <br />
+        </div>
+        <br />
+        <div class="col-md-6">
+            <br />
+            <br />
+            <h3 style="text-align:center" class="luxury">Meet With The Missionaries</h3>
+            <a class="gold-button" style="width: 180px; float: none; margin: 0 auto; margin-top: 25px;" href="https://www.mormon.org/missionaries" target="_blank">Learn More</a>
+        </div>
+    </div>
+</div>

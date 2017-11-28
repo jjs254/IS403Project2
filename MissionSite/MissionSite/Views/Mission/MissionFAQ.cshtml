@@ -1,0 +1,184 @@
+﻿@model MissionSite.Models.Missions
+@{
+    ViewBag.Title = Model.missionName;
+}
+
+<!--Snapshot information of mission-->
+<div class="FAQBackground" style="background-image:url('@Model.Flag');">
+    <div>
+        <div class="row">
+            <br />
+            <br />
+        </div>
+        <div class="row">
+            <div class="col-md-6" style="padding-right: 0; margin-right: 0">
+                <hr style="border-top: 2px solid black;" />
+            </div>
+            <div class="col-md-6 FAQInformation">
+                <h4 style="color: white">
+                    <!--The information for each category is pulled dynamically from the model-->
+                    <strong>@Model.missionName Mission - Snapshot</strong>
+                    <dl>
+                        <dt class="col-sm-3"><strong>President: </strong></dt>
+                        <dd class="col-sm-9"><i>@Model.MissionPresident</i></dd>
+
+                        <dt class="col-sm-3"><strong>Address: </strong></dt>
+                        <dd class="col-sm-9"><i>@Model.MissionAddress</i></dd>
+
+                        <dt class="col-sm-3"><strong>Language: </strong></dt>
+                        <dd class="col-sm-9"><i>@Model.Language</i></dd>
+
+                        <dt class="col-sm-3"><strong>Climate: </strong></dt>
+                        <dd class="col-sm-9"><i>@Model.Climate</i></dd>
+
+                        <dt class="col-sm-3"><strong>Religion: </strong></dt>
+                        <dd class="col-sm-9"><i>@Model.Religion</i></dd>
+                        
+                        <dt class="col-sm-3"><br /></dt>
+                        <dd class="col-sm-9"><br /></dd>
+                    </dl>
+                </h4>
+            </div>
+        </div>
+        <div class="row">
+            <br />
+            <br />
+            <br />
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h1 style="text-align:center; font-family:Comic Sans MS, cursive, sans-serif;">Ask a Missionary!</h1>
+    <h4 style="text-align:center; font-family:Comic Sans MS, cursive, sans-serif;">You have questions. Our following of RMs have answers. Submit your question below:</h4>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            @using (Html.BeginForm("MissionFAQ", "Mission", new { Model.missionName }, FormMethod.Post, new { @class = "form-group", @style = "text-align:center" }))
+            {
+                @Html.TextBox("NewQuestion", "", new { type = "text", id = "NewQuestion", @class = "form-control input-lg bigWidth", placeholder = "Question", required = true, autofocus = true })
+                <br />
+                <button class="btn btn-primary btn-lg" type="submit">Post</button>
+            }
+        </div>
+    </div>
+</div>
+
+<!--FAQs container for the frequently asked questions-->
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h2 style="text-align:center">Frequently Asked Questions</h2>
+            <br />
+            <h4>
+                <dl>
+                    <dt class="col-sm-9">@ViewBag.question1</dt>
+                    <dd class="col-sm-3">@Html.ActionLink("View", "MissionFAQ", "Mission", new { Model.missionName, questionID = 1 }, new { @class = "btn btn-default" })</dd>
+           
+                    <dt class="col-sm-9">@ViewBag.question2</dt>
+                    <dd class="col-sm-3">@Html.ActionLink("View", "MissionFAQ", "Mission", new { Model.missionName, questionID = 2 }, new { @class = "btn btn-default" })</dd>
+              
+                    <dt class="col-sm-9">@ViewBag.question3</dt>
+                    <dd class="col-sm-3">@Html.ActionLink("View", "MissionFAQ", "Mission", new { Model.missionName, questionID = 3 }, new { @class = "btn btn-default" })</dd>
+                
+                    <dt class="col-sm-9">@ViewBag.question4</dt>
+                    <dd class="col-sm-3">@Html.ActionLink("View", "MissionFAQ", "Mission", new { Model.missionName, questionID = 4 }, new { @class = "btn btn-default" })</dd>
+               
+                    <dt class="col-sm-9">@ViewBag.question5</dt>
+                    <dd class="col-sm-3">@Html.ActionLink("View", "MissionFAQ", "Mission", new { Model.missionName, questionID = 5 }, new { @class = "btn btn-default" })</dd>
+                </dl>
+            </h4>
+        </div>
+        <div class="col-md-6">
+            <h2 style="text-align:center">Response Thread</h2>
+            <br />
+            @if (ViewBag.questionId != 0)
+            {
+                if (ViewBag.questionID == 1)
+                {
+                    <p><img src="../../Content/images/trackingline.jpg" class="comment" /><img src="../../Content/images/blankProfile.png" class="comment" /> <a href="#" class="handler">@ViewBag.handler</a> @Model.Answer1</p>
+                    <p><img src="../../Content/images/trackingline.jpg" class="comment" /><img src="../../Content/images/blankProfile.png" class="comment" /> <a href="#" class="handler">&#64bigjoe</a> What do you mean? I hated ramen!</p>
+                    <p><img src="../../Content/images/trackingline.jpg" class="comment" /><img src="../../Content/images/blankProfile.png" class="comment" /> <a href="#" class="handler">&#64rm3421</a> &#64bigjoe You are a fool.</p>
+                    <p><img src="../../Content/images/trackingline.jpg" class="comment" /><img src="../../Content/images/blankProfile.png" class="comment" /> <a href="#" class="handler">&#64admin</a> Site rules forbid personal insults. Please keep comments cordial.</p>
+                    using (Html.BeginForm("MissionFAQ", "Mission", new { Model.missionName }, FormMethod.Post, new { @class = "form-group" }))
+                    {
+                        <div class="container">
+                            <div class="col-md-11">
+                                @Html.TextBox("NewComment", "", new { type = "text", id = "NewComment", @class = "form-control", placeholder = "Comment here", required = true, autofocus = true })
+                            </div>
+                            <div class="col-md-1">
+                                <button class="btn btn-default" type="submit">Post</button>
+                            </div>
+                        </div>
+                    }
+                }
+                else if (ViewBag.questionID == 2)
+                {
+                    <p><img src="../../Content/images/trackingline.jpg" class="comment" /><img src="../../Content/images/blankProfile.png" class="comment" /> <a href="#" class="handler">@ViewBag.handler</a> @Model.Answer2</p>
+                    using (Html.BeginForm("MissionFAQ", "Mission", new { Model.missionName }, FormMethod.Post, new { @class = "form-group" }))
+                    {
+                        <div class="container">
+                            <div class="col-md-11">
+                                @Html.TextBox("NewComment", "", new { type = "text", id = "NewComment", @class = "form-control", placeholder = "Comment here", required = true, autofocus = true })
+                            </div>
+                            <div class="col-md-1">
+                                <button class="btn btn-default" type="submit">Post</button>
+                            </div>
+                        </div>
+                    }
+                }
+                else if (ViewBag.questionID == 3)
+                {
+                    <p><img src="../../Content/images/trackingline.jpg" class="comment" /><img src="../../Content/images/blankProfile.png" class="comment" /> <a href="#" class="handler">@ViewBag.handler</a> @Model.Answer3</p>
+                    using (Html.BeginForm("MissionFAQ", "Mission", new { Model.missionName }, FormMethod.Post, new { @class = "form-group" }))
+                    {
+                        <div class="container">
+                            <div class="col-md-11">
+                                @Html.TextBox("NewComment", "", new { type = "text", id = "NewComment", @class = "form-control", placeholder = "Comment here", required = true, autofocus = true })
+                            </div>
+                            <div class="col-md-1">
+                                <button class="btn btn-default" type="submit">Post</button>
+                            </div>
+                        </div>
+                    }
+                }
+                else if (ViewBag.questionID == 4)
+                {
+                    <p><img src="../../Content/images/trackingline.jpg" class="comment" /><img src="../../Content/images/blankProfile.png" class="comment" /> <a href="#" class="handler">@ViewBag.handler</a> @Model.Answer4</p>
+                    using (Html.BeginForm("MissionFAQ", "Mission", new { Model.missionName }, FormMethod.Post, new { @class = "form-group" }))
+                    {
+                        <div class="container">
+                            <div class="col-md-11">
+                                @Html.TextBox("NewComment", "", new { type = "text", id = "NewComment", @class = "form-control", placeholder = "Comment here", required = true, autofocus = true })
+                            </div>
+                            <div class="col-md-1">
+                                <button class="btn btn-default" type="submit">Post</button>
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <p><img src="../../Content/images/trackingline.jpg" class="comment" /><img src="../../Content/images/blankProfile.png" class="comment" /> <a href="#" class="handler">@ViewBag.handler</a> @Model.Answer5</p>
+                    using (Html.BeginForm("MissionFAQ", "Mission", new { Model.missionName }, FormMethod.Post, new { @class = "form-group" }))
+                    {
+                        <div class="container">
+                            <div class="col-md-11">
+                                @Html.TextBox("NewComment", "", new { type = "text", id = "NewComment", @class = "form-control", placeholder = "Comment here", required = true, autofocus = true })
+                            </div>
+                            <div class="col-md-1">
+                                <button class="btn btn-default" type="submit">Post</button>
+                            </div>
+                        </div>
+                    }
+                }
+            }
+            
+        </div>
+    </div>
+    <br />
+    <br />
+    <br />
+</div>

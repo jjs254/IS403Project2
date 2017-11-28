@@ -1,0 +1,16 @@
+﻿body {
+}
+
+.contactInfo {
+    background-color: #fafafa;
+    padding-left: 20px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 16pt;
+    
+}
+
+.contactHeading {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 22pt;
+    color: #e0bc75;
+}

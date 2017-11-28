@@ -1,0 +1,68 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<div class="container">
+    <div class="row">
+        <h2 style="font-family: 'Comic Sans MS'">Contact Us</h2>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class=" col-md-5">
+            <center>
+                <!--Contact form-->
+                @using (Html.BeginForm("Contact", "Home"))
+                {
+                    <br />
+
+                    <label class="contactHeading" for="inputName">Enter Your Name</label>
+                    @Html.TextBox("Name", "", new { type = "name", id = "inputName", @class = "form-control", placeholder = "Enter Name", required = true, autofocus = true })
+                    <br />
+                    <!--email input requires proper email address-->
+                    <label class="contactHeading" for="inputEmail">Enter Your Email</label>
+                    @Html.TextBox("Email", "", new { type = "email", id = "inputEmail", @class = "form-control", placeholder = "Email address", required = true })
+                    <br />
+                    <fieldset>
+                        <label class="contactHeading" for="Subject">Enter the Subject</label>
+                        @Html.DropDownList("Subject", null, new { @class = "form-control"})
+
+                    </fieldset>
+                    <br />
+                    <label class="contactHeading" for="inputMessage">Enter Your Message</label>
+                    @Html.TextArea("Message", "", new { type = "message", id = "inputMessage", @class = "form-control", placeholder = "Enter Message", style = "height:200px", required = true })
+
+                    <br />
+                    <button class="btn btn-lg btn-primary" type="submit">Submit</button>
+                }
+            </center>
+        </div>
+        <div class=" col-md-2"></div>
+        <div class=" col-md-5 contactInfo">
+            <br />
+            <p class="contactHeading">Address:</p>
+            <p>
+                <address>
+                    123 N Cougar Way<br />
+                    Provo, UT 84602<br />
+                </address>
+            </p>
+            <br />
+            <p class="contactHeading">Phone:</p>
+            <p>
+                (801) 555-5555
+            </p>
+            <br />
+            <p class="contactHeading">Email:</p>
+            <p>
+                dunkem@gmail.com
+            </p>
+            <br />
+        </div>
+    </div>
+    <br />
+    <br />
+    <br />
+</div>
+
+
+
