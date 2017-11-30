@@ -17,6 +17,6 @@ namespace MissionSite.Models
 
         [ForeignKey("MissionQuestions")]
         public virtual int missionQuestionID { get; set; }
-        public virtual MissionQuestions MissionQuestion { get; set; }
+        public virtual MissionQuestions MissionQuestions { get; set; }
     }
 }

@@ -17,10 +17,10 @@ namespace MissionSite.Models
 
         [ForeignKey("Users")]
         public virtual int userID { get; set; }
-        public virtual Users User { get; set; }
+        public virtual Users Users { get; set; }
 
         [ForeignKey("Missions")]
         public virtual int missionID { get; set; }
-        public virtual Missions Mission { get; set; }
+        public virtual Missions Missions { get; set; }
     }
 }
