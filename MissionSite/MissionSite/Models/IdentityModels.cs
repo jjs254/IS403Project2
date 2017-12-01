@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.ComponentModel.DataAnnotations;
 
 namespace TestOAuth.Models
 {
@@ -16,6 +17,15 @@ namespace TestOAuth.Models
             // Add custom user claims here
             return userIdentity;
         }
+
+        [Required]
+        public string FirstName { get; set; }
+
+        [Required]
+        public string LastName { get; set; }
+
+        [Required]
+        public string Handler { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
