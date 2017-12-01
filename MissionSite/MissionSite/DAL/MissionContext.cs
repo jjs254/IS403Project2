@@ -1,4 +1,5 @@
-﻿using MissionSite.Models;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using MissionSite.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -7,7 +8,7 @@ using System.Web;
 
 namespace MissionSite.DAL
 {
-    public class MissionContext : DbContext
+    public class MissionContext : IdentityDbContext
     {
 
         public MissionContext() : base("MissionContext")
