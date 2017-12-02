@@ -216,6 +216,7 @@
     <Content Include="Content\images\japan.jpg" />
     <Content Include="Content\images\josephQuoteBlack.jpg" />
     <Content Include="Content\images\mexico.jpg" />
+    <Content Include="Content\images\redDot.jpg" />
     <Content Include="Content\images\serbia.jpg" />
     <Content Include="Content\images\slcTempleTall.jpg" />
     <Content Include="Content\images\worldMap.jpg" />

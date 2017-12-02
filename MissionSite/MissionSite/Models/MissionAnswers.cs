@@ -15,6 +15,8 @@ namespace MissionSite.Models
 
         public string answer { get; set; }
 
+        public string handler { get; set; }
+
         [ForeignKey("MissionQuestions")]
         public virtual int missionQuestionID { get; set; }
         public virtual MissionQuestions MissionQuestions { get; set; }

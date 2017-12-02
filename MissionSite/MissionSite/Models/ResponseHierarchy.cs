@@ -10,5 +10,6 @@ namespace MissionSite.Models
         public Missions mission;
         public List<MissionQuestions> missionQuestions;
         public List<MissionAnswers> missionAnswers;
+        public int missionQuestionID;
     }
 }

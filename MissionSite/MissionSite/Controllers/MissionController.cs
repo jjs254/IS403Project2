@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 
 namespace MissionSite.Controllers
 {
@@ -21,6 +22,7 @@ namespace MissionSite.Controllers
 
         //This line changes the SiteMapTitle to the missionName to be used with the breadcrumb
         [SiteMapTitle("missionName")]
+        [Authorize]
         public ActionResult MissionFAQ(int missionKey, int questionID = 0)
         {
             Missions mission = new Missions();
@@ -31,7 +33,46 @@ namespace MissionSite.Controllers
             hierarchy.mission = mission;
             hierarchy.missionQuestions = missionQuestions.ToList();
             hierarchy.missionAnswers = missionAnswers.ToList();
+            hierarchy.missionQuestionID = questionID;
             return View(hierarchy);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult MissionFAQ(FormCollection form, int missionKey)
+        {
+            String formType = form["formType"].ToString();
+            if (formType == "Question")
+            {
+                String question = form["NewQuestion"].ToString();
+                MissionQuestions newQuestion = new MissionQuestions();
+                newQuestion.missionQuestion = question;
+                newQuestion.userID = User.Identity.GetUserName();
+                newQuestion.missionID = missionKey;
+                if (ModelState.IsValid)
+                {
+                    MissionContext.MissionQuestions.Add(newQuestion);
+                    MissionContext.SaveChanges();
+                    return RedirectToAction("MissionFAQ", "Mission", new { missionKey = newQuestion.missionID, questionID = newQuestion.missionQuestionID });
+                }
+
+            }
+            else
+            {
+                int missionQuestionID = Convert.ToInt32(form["missionQuestionID"]);
+                MissionAnswers newAnswer = new MissionAnswers();
+                newAnswer.answer = form["NewComment"].ToString();
+                newAnswer.missionQuestionID = missionQuestionID;
+                IEnumerable<string> handler = MissionContext.Database.SqlQuery<String>("SELECT Handler FROM AspNetUsers WHERE UserName = @p0", User.Identity.GetUserName());
+                newAnswer.handler = "@" + handler.ToList()[0]; //there will only be one
+               if (ModelState.IsValid)
+                {
+                    MissionContext.MissionAnswers.Add(newAnswer);
+                    MissionContext.SaveChanges();
+                    return RedirectToAction("MissionFAQ", "Mission", new { missionKey = missionKey, questionID = missionQuestionID });
+                }
+            }
+            return RedirectToAction("MissionFAQ", "Mission", new { missionKey = missionKey });
         }
     }
 }
