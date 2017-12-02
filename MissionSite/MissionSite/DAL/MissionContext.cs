@@ -18,10 +18,8 @@ namespace MissionSite.DAL
         }
 
         public DbSet<Missions> Missions { get; set; }
-        //public DbSet<Users> Users { get; set; }
         public DbSet<MissionQuestions> MissionQuestions { get; set; }
         public DbSet<MissionAnswers> MissionAnswers { get; set; }
         public IEnumerable IdentityUsers { get; internal set; }
-        //public DbSet<IdentityUser> IdentityUsers { get; set; }
     }
 }
