@@ -10,9 +10,9 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
-using TestOAuth.Models;
+using MissionSite.Models;
 
-namespace TestOAuth
+namespace MissionSite
 {
     public class EmailService : IIdentityMessageService
     {

@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using MissionSite.Models;
 
 namespace MissionSite.Models
 {
@@ -15,9 +16,11 @@ namespace MissionSite.Models
 
         public string missionQuestion { get; set; }
 
-        [ForeignKey("Users")]
-        public virtual int userID { get; set; }
-        public virtual Users Users { get; set; }
+        //public string userID { get; set; }
+
+        [ForeignKey("ApplicationUser")]
+        public string userID { get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
 
         [ForeignKey("Missions")]
         public virtual int missionID { get; set; }

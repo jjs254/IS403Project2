@@ -5,9 +5,9 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
-using TestOAuth.Models;
+using MissionSite.Models;
 
-namespace TestOAuth
+namespace MissionSite
 {
     public partial class Startup
     {

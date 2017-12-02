@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace TestOAuth.Models
+namespace MissionSite.Models
 {
     public class ExternalLoginConfirmationViewModel
     {

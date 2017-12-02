@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
+using System.Collections;
 
 namespace MissionSite.DAL
 {
@@ -17,8 +18,10 @@ namespace MissionSite.DAL
         }
 
         public DbSet<Missions> Missions { get; set; }
-        public DbSet<Users> Users { get; set; }
+        //public DbSet<Users> Users { get; set; }
         public DbSet<MissionQuestions> MissionQuestions { get; set; }
-        public DbSet<MissionAnswers> MissionAnswers { get; set; } 
+        public DbSet<MissionAnswers> MissionAnswers { get; set; }
+        public IEnumerable IdentityUsers { get; internal set; }
+        //public DbSet<IdentityUser> IdentityUsers { get; set; }
     }
 }

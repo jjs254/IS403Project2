@@ -8,9 +8,9 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using TestOAuth.Models;
+using MissionSite.Models;
 
-namespace TestOAuth.Controllers
+namespace MissionSite.Controllers
 {
     [Authorize]
     public class AccountController : Controller
