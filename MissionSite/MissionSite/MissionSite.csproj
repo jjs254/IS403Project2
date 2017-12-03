@@ -229,14 +229,10 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="DisplayTemplates\CanonicalHelperModel.cshtml" />
-    <Content Include="DisplayTemplates\MenuHelperModel.cshtml" />
-    <Content Include="DisplayTemplates\MetaRobotsHelperModel.cshtml" />
-    <Content Include="DisplayTemplates\SiteMapHelperModel.cshtml" />
-    <Content Include="DisplayTemplates\SiteMapNodeModel.cshtml" />
-    <Content Include="DisplayTemplates\SiteMapNodeModelList.cshtml" />
-    <Content Include="DisplayTemplates\SiteMapPathHelperModel.cshtml" />
-    <Content Include="DisplayTemplates\SiteMapTitleHelperModel.cshtml" />
+    <Content Include="Mvc.sitemap" />
+    <None Include="MvcSiteMapSchema.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

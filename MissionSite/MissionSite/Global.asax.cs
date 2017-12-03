@@ -17,7 +17,6 @@ namespace MissionSite
         {
             Database.SetInitializer<MissionContext>(null);
 
-            //MvcSiteMapProvider.DI.Composer.Compose();
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
