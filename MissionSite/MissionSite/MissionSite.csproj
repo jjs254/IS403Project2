@@ -219,6 +219,7 @@
     <Content Include="Content\images\serbia.jpg" />
     <Content Include="Content\images\slcTempleTall.jpg" />
     <Content Include="Content\images\worldMap.jpg" />
+    <Content Include="Content\Login.css" />
     <Content Include="Content\mikeStyle.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
