@@ -5,9 +5,8 @@
 
 @foreach (var node in Model) { 
     @Html.DisplayFor(m => node);
-
-    if (node != Model.Last())
-    {
-        <text> &#47; </text>
+    
+    if (node != Model.Last()) {
+        <text> &gt; </text>
     }
 }
