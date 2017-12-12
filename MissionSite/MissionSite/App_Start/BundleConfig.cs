@@ -33,7 +33,8 @@ namespace MissionSite
                       "~/Content/font-awesome.css",
                       "~/Content/customStyle.css",
                       "~/Content/faqstyles.css",
-                      "~/Content/mikeStyle.css"));
+                      "~/Content/mikeStyle.css",
+                      "~/Content/Login.css"));
         }
     }
 }
