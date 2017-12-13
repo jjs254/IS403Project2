@@ -113,3 +113,12 @@
     font-size: 12px;
     margin-bottom: 10px;
 }
+
+.login-btn {
+    width: 100%;
+}
+
+.login-img {
+    width: 22px;
+    margin-right: 8px;
+}

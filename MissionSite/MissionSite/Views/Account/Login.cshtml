@@ -13,7 +13,7 @@
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="form-group">
-                <div class="col-md-offset-1 col-md-11">
+                <div class="col-md-12">
                     @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email" })
                     @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
                     <div class="login-help">
@@ -22,7 +22,7 @@
                 </div>
             </div>
                 <div class="form-group">
-                    <div class="col-md-offset-1 col-md-11">
+                    <div class="col-md-12">
                         @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Password" })
                         @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                         <div class="login-help">
@@ -31,11 +31,10 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-md-offset-1 col-md-11">
+                    <div class="col-md-12">
                         <input type="submit" value="Login" class="login login-submit" />
                     </div>
                 </div>
-                @Html.Partial("_ExternalLoginsListPartial")
                 <!--Uncomment below to activate RememberMe feature-->
                 @*<div class="form-group">
                         <div class="col-md-offset-6 col-md-6">
@@ -53,6 +52,7 @@
                         @Html.ActionLink("Forgot your password?", "ForgotPassword")
                     </p>*@
         }
+        @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
     </div>
 </div>
     @*<div class="col-md-4">
