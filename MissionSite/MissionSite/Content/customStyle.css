@@ -15,6 +15,11 @@ body {
    margin-right: 0;
 }
 
+.navbar-right {
+    /*overwrite bootstrap default of -15px*/
+    margin-right: 0;
+}
+
 /*---------------------------------------------------------------------------------*/
 
 /*Navbar Styles*/
