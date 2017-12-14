@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
+using System.Collections;
 
 namespace MissionSite.Controllers
 {
@@ -17,7 +18,8 @@ namespace MissionSite.Controllers
         // GET: Mission
         public ActionResult Mission()
         {
-            return View();
+            IEnumerable<Missions> missions = MissionContext.Database.SqlQuery<Missions>("SELECT * FROM Missions");
+            return View(missions.ToList());
         }
 
         //This line changes the SiteMapTitle to the missionName to be used with the breadcrumb
